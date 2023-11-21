@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Original</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fraunces&display=swap">
+    <style>
+        
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'CustomFont', Fraunces;
+			background-image: url('https://i.postimg.cc/X7QTf650/4.png');
+			background-size: cover; /* 保持图片比例并覆盖整个屏幕 */
+			background-repeat: no-repeat; /* 防止图片重复 */
+		}
+		
+		.center-container {
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh; /* This ensures the container takes the full height of the viewport */
+		        }
+		
+		.centered-text {
+		            /* Add any additional styling for your text */
+		        }
+		
+		.centered-button {
+		            /* Add any additional styling for your button */
+		        }
+				
+		.colored-text1 {
+			color: red; /* 设置文字颜色为蓝色 */
+        }
+		.colored-text2 {
+			color: blue; /* 设置文字颜色为蓝色 */
+			font-size: 30px;
+		}
+    </style>
+</head>
+
+
+
+<body>
+
+<div class="center-container">
+        <p class="colored-text1">Our slogan is: Stop all forms of racist hatred!!</p>
+        
+
+
+		<h1 class="centered-text">Hate on Display</h1>
+		
+		<p class="centered-text" ><br>
+
+		My research of postcolonial computing in digital inclusion, Explores how it shapes Chinese cultural identity and social justice. Further, this platform extends the research to the global arena, reflects the exploration of how it shape social justice and global development. ///Controversies surrounding machine learning's treatment of race have inspired a growing field of research about fairness in machine learning. With the advent of the new age of the Internet and information media, hate speech has come to the forefront of cyber violence. The question of where the borderline is about 'hate speech' and how to deal effectively with racial discrimination online is an ongoing subject of debate.  Today, there is a proliferation of online social media that incites racial hatred through sound, images, text, or gestures.  In some cultures, specific hand signs have symbolic meanings, and their use may involve postcolonial-related issues of power, culture, and identity.  ///This work 'Hate on Display' is based on machine learning, categorised databases into three types: Asian Hate, White Supremacy, and Antisemitism, using tracking body movement approaches to recognize racist hand signs on the Internet, deepening the study of approaches based on representation with hand signs.
+		</p>
+		
+		
+		<button class="centered-button" type="button" style="width: 300px; height: 150px;font-size: 50px;" onclick="init()" >Start</button>
+		<div>
+			<canvas id="canvas"></canvas></div>
+		<div id="label-container"></div>
+		<a href="https://www.adl.org/resources/hate-symbols/search?f%5B0%5D=topic%3A1710">Retrieved from Anti-Defamation League official website :) click here</a>
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+				</div>
+			
+		<script type="text/javascript">
+			// More API functions here:
+			// https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
+
+			// the link to your model provided by Teachable Machine export panel
+			const URL = "https://teachablemachine.withgoogle.com/models/bFF399BBK/";
+			let model, webcam, ctx, labelContainer, maxPredictions;
+
+			async function init() {
+				const modelURL = URL + "model.json";
+				const metadataURL = URL + "metadata.json";
+
+				// load the model and metadata
+				// Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+				// Note: the pose library adds a tmPose object to your window (window.tmPose)
+				model = await tmPose.load(modelURL, metadataURL);
+				maxPredictions = model.getTotalClasses();
+
+				// Convenience function to setup a webcam
+				const size = 500;
+				const flip = true; // whether to flip the webcam
+				webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
+				await webcam.setup(); // request access to the webcam
+				await webcam.play();
+				window.requestAnimationFrame(loop);
+
+				// append/get elements to the DOM
+				const canvas = document.getElementById("canvas");
+				canvas.width = size; canvas.height = size;
+				ctx = canvas.getContext("2d");
+				labelContainer = document.getElementById("label-container");
+				for (let i = 0; i < maxPredictions; i++) { // and class labels
+					labelContainer.appendChild(document.createElement("div"));
+				}
+			}
+
+			async function loop(timestamp) {
+				webcam.update(); // update the webcam frame
+				await predict();
+				window.requestAnimationFrame(loop);
+			}
+
+			async function predict() {
+				// Prediction #1: run input through posenet
+				// estimatePose can take in an image, video or canvas html element
+				const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
+				// Prediction 2: run input through teachable machine classification model
+				const prediction = await model.predict(posenetOutput);
+
+				for (let i = 0; i < maxPredictions; i++) {
+					const classPrediction =
+						prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+					labelContainer.childNodes[i].innerHTML = classPrediction;
+				}
+
+				// finally draw the poses
+				drawPose(pose);
+			}
+
+			function drawPose(pose) {
+				if (webcam.canvas) {
+					ctx.drawImage(webcam.canvas, 0, 0);
+					// draw the keypoints and skeleton
+					if (pose) {
+						const minPartConfidence = 0.5;
+						tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
+						tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
+					}
+				}
+			}
+		</script>
+
+
+</body>
+
+</html>

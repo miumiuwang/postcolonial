@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Original</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fraunces&display=swap">
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            width: 100vw;
+            height: 100vh;
+			
+        }
+
+        .grid-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+			color: #FFF;
+            font-size: 50px;
+            border: 2px solid transparent; /* 设置网格线颜色为透明 */
+            position: relative;
+			
+        }
+		
+		.grid-item.translucent {
+		            background-color: rgba(128, 128, 128, 0.5); /* 使用rgba设置半透明灰色 */
+		        }
+
+        .image-overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0); /* 半透明背景颜色 */
+            color: #FFF; /* 文本颜色 */
+            text-align: center;
+            font-size: 18px;
+            padding: 20px;
+			z-index: 1; /* 置于底层 */
+        }
+
+        .grid-item:hover .image-overlay {
+            display: flex;
+            flex-direction: column; /* 图片垂直排列 */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-overlay img {
+            max-width: 100%; /* 图片宽度不超过覆盖层 */
+			max-height: 100%; /* 图片高度不超过覆盖层 */
+            margin: 10px; /* 图片之间的间距 */
+            position: absolute;
+        }
+		
+		
+		#follow-image {
+			position: absolute;
+			
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'CustomFont', Fraunces;
+			background-image: url('https://i.postimg.cc/SRHGz1FP/1.jpg');
+			background-size: cover; /* 保持图片比例并覆盖整个屏幕 */
+			background-repeat: no-repeat; /* 防止图片重复 */
+		}
+
+		#moving-image {
+			position: absolute;
+			pointer-events: none; /* 使图片不影响鼠标事件 */
+			width: 50px; /* 设置图片宽度 */
+			height: 50px; /* 设置图片高度 */
+		}
+		
+		@font-face {
+		    font-family: 'CustomFont';
+		    src: url('./FontStyle.ttf') format('woff2'),
+		    /* 添加字体文件的路径和格式 */
+		    font-weight: normal;
+			font-size: 14px;
+		    font-style: normal;
+		}
+		
+		
+		.top-text {
+		            position: fixed;
+		            top: 0;
+		            left: 0;
+		            right: 0;
+		            background-color: transparent;
+		            text-align: center;
+		            padding: 10px 0;
+					color:red;
+					
+		        }
+		
+		/* 底部文字 */
+		.bottom-text {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: transparent;
+			text-align: center;
+			padding: 10px 0;
+			color: red
+		}
+		
+		.custom-font {
+		    font: italic bold 50px Arial, sans-serif;
+		}
+		
+		
+		
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+			<!-- 1 -->
+		<div class="grid-item"></div>
+			<!-- 2 -->
+        <div class="grid-item translucent" id="item-1"> <p style="color: lightgoldenrodyellow;">Welcome to <span class="custom-font">#Postcolonial <br>  Island</span>.</p>
+			
+        </div>
+			<!-- 3 -->
+		<div class="grid-item"></div>
+			<!-- 4 -->
+        <div class="grid-item translucent" id="item-2"><p style="color: lightgoldenrodyellow;">Digital Inclusivity <br> and Reflective Design<p>
+            <div class="image-overlay" id="overlay-2">
+                <img src="https://i.postimg.cc/R06tHv5h/6-2.png" alt="Image 2"> <!-- 替换为您的图片路径 -->
+            </div>
+        </div>
+			<!-- 5 -->
+        <div class="grid-item">^-^</div>
+		<div class="grid-item translucent" id="item-3" > <p style="color: lightgoldenrodyellow;"> Machine learning-based Tool / Hate on Display</p> 
+			<div class="image-overlay" id="overlay-1">
+		        <img src="https://i.postimg.cc/MG269wfv/6-3.png" alt="Image 3">
+		        
+		        
+		    </div>
+		</div>
+			<!-- 6 -->
+		<div class="grid-item translucent"><p style="color: lightgoldenrodyellow;">Digital Sovereignty <br> and Indigenization<p>
+		    <div class="image-overlay" id="overlay-3">
+		        
+				<img src="https://i.postimg.cc/wj68MBN5/6-4.png" alt="Image 4"> <!-- 替换为您的图片路径 -->
+		    </div>
+			
+		</div>
+			<!-- 7 -->
+			<div class="grid-item"></div>
+			<!-- 8 -->
+		<div class="grid-item translucent"><p style="color: lightgoldenrodyellow;"> Social media & promotion
+</p>
+		    <div class="image-overlay" id="overlay-3">
+		        <img src="https://i.postimg.cc/rp3P1yDP/6-5.png" alt="Image 6"> <!-- 替换为您的图片路径 -->
+		    </div>
+		</div>
+			<!-- 9 -->
+			<div class="grid-item"></div>
+    </div>
+	
+	<img src="111.png" alt="Follow Me" id="follow-image">
+	
+	
+		<div class="top-text">
+			Made by Jiamiao Wang.
+			This island is a safe online platform/community Committed to cultural diversity and social justice! UK, a DIY postcolonial computing server. <br>Built with Visual Studio Code & HBuilder X
+		</div>
+	
+	    <div class="bottom-text">
+			Acknowledgment: Rebecca Fiebrink, Joana Chicau <br></div>
+
+		<a href="https://www.example.com">
+		    <img id="moving-image" src="https://i.postimg.cc/pLLSJH4H/6.png" alt="跟随鼠标移动的图片">
+		  </a>
+	
+	
+    <script>
+        function shuffleImages(containerId) {
+			const container = document.getElementById(containerId);
+			const images = Array.from(container.querySelectorAll('img'));
+			const usedPositions = new Set();
+
+			images.forEach(image => {
+				let randomX, randomY;
+				do {
+					randomX = Math.random() * 80 + 10; // 随机 X 坐标位置
+					randomY = Math.random() * 80 + 10; // 随机 Y 坐标位置
+				} while (usedPositions.has(`${randomX}-${randomY}`)); // 检查是否已经有图片占用该位置
+				usedPositions.add(`${randomX}-${randomY}`);
+				image.style.top = `${randomY}%`;
+				image.style.left = `${randomX}%`;
+			});
+		}
+
+		// 鼠标悬停时随机排列图片
+		document.querySelectorAll('.grid-item').forEach((item, index) => {
+			item.addEventListener('mouseover', () => {
+				const overlayId = `overlay-${index + 1}`;
+				shuffleImages(overlayId);
+			});
+		});
+		
+		
+		// 获取所有网格元素
+		        const gridItems = document.querySelectorAll('.grid-item');
+		
+		        // 为每个网格元素添加点击事件监听器
+		        gridItems.forEach((item, index) => {
+		            item.addEventListener('click', () => {
+		                // 根据不同网格元素的索引跳转到不同的页面
+		                switch (index) {
+		                    case 3:
+		                        window.location.href = 'Reflective.html';
+		                        break;
+		                    case 5:
+		                        window.location.href = 'MachineLearning.html';
+		                        break;
+		                    
+		                    case 6:
+		                        window.location.href = 'Sovereignty.html';
+		                        break;
+		                    case 8:
+		                        window.location.href = 'SocialMedia.html';
+		                        break;
+		                    
+		                }
+		            });
+		        });
+		
+		
+		
+		// 获取图片元素和链接元素
+		    const image = document.getElementById('moving-image');
+		    const link = document.querySelector('a');
+		
+		    // 添加鼠标移动事件监听器
+		    document.addEventListener('mousemove', (e) => {
+		      // 获取鼠标的坐标
+		      const mouseX = e.clientX;
+		      const mouseY = e.clientY;
+		
+		      // 设置图片的位置，可以根据需要微调偏移量
+		      image.style.left = mouseX - image.width / 2 + 'px';
+		      image.style.top = mouseY - image.height / 2 + 'px';
+		
+		      // 设置链接的位置，以确保链接在图片的上方
+		      link.style.left = mouseX - image.width / 2 + 'px';
+		      link.style.top = mouseY - image.height / 2 + 'px';
+		    });
+		
+		
+		
+		
+	</script>
+</body>
+</html>
+        
