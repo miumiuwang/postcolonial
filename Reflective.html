@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <style>
         h1{
-			color: dimgrey;
+			color: #B20202;
 			font-size: 50px; /* 修改字体大小 */
 			margin-top: 80px;
 			margin-bottom: 80px; /* 修改标题下方的间距 */
 		}
 		h2{
-			color: slategrey;
+			color: darkslategrey;
 			font-size: 30px; /* 修改字体大小 */
 			margin-top: 50px;
 			margin-bottom: 50px; /* 修改标题下方的间距 */
 		}
 		h3{
-			color: slategrey;
-			font-size: 15px; /* 修改字体大小 */
-			margin-top: 50px;
+			color: darkslategrey;
+			font-size: 20px; /* 修改字体大小 */
+			margin-top: 30px;
 			margin-bottom: 50px; /* 修改标题下方的间距 */
 		}
 		
@@ -36,15 +37,15 @@
 		body {
 			margin-left: 250px; /* 左侧边距 */
 			margin-right: 250px; /* 右侧边距 */
-			background: slategrey;
+			background: dimgrey;
 			background-attachment: fixed; /* 固定背景 */
 			text-align: left;
 			background-image: url('https://i.postimg.cc/431hf6Ls/2.png');
 			background-size: cover; /* 保持图片比例并覆盖整个屏幕 */
 		}
 		.content {
-		            margin: 20px;
-		            padding: 20px;
+		            margin: 2px;
+		            padding: 2px;
 		            
 		        }
 		
@@ -52,12 +53,14 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			margin-right: 0.5px; /* 设置水平间距为10像素 */
 		}
 
 		img {
 			max-width: 100%;
 			margin: 30px 0; /* 设置图片之间的垂直间距 */
 		}
+		
 	
 		@font-face {
 		    font-family: 'CustomFont';
@@ -68,59 +71,77 @@
 		}
 		p {
 		  font-size: 21px;
-		  color: slategrey;
+		  color: darkslategrey;
 		}
+		
+		#follow-image {
+			position: absolute;
+			
+		}
+		
+		.italic-text {
+		      font-style: italic;
+		    }
 
     </style>
 </head>
 <body>
-	
+	<div class="custom-cursor"></div>
+	<script>
+        document.addEventListener('mousemove', function(e) {
+            var customCursor = document.querySelector('.custom-cursor');
+            customCursor.style.left = e.pageX + 'px';
+            customCursor.style.top = e.pageY + 'px';
+            });
+    </script>
     <div class="content">
-        <h1>Digital Inclusivity and Reflective Design</h1>
+        <h1 class="italic-text">Digital Inclusivity and Reflective Design</h1>
         <!-- 在新页面中添加您想要的文字内容 -->
 		<p class="custom-line-height">
+			
 			2023<br><br>
 			China<br><br>
-Postcolonial computing is concerned with digital inclusion, ensuring that digital technologies are universally available and accessible, which is also in line with one of the goals of human-computer interaction, which is to design interfaces and interactions that make technology more accessible to a variety of people. Digital inclusivity is not just about providing accessible technology but also about considering the diversity of users' needs to ensure they have straightforward and comfortable access to digital resources. A continuous focus on and improvement of digital inclusivity is essential, the realisation of which contributes to creating a more equal and inclusive society.<br><br>
-		
-In China, the design, user interface, and user experience of some technology products reflect cultural biases or insufficiently inclusive features, which may make it difficult for the product to meet the needs of users from different cultures and backgrounds or even some user groups may feel neglected or excluded. For example, regarding the cultural symbols of software interfaces, the cultural sensitivity of online content, and the cultural representation of virtual game applications. Because of this, postcolonial computing emphasises cultural diversity and social justice. It engages more people in cultural experiences through the web and promotes the transmission and development of indigenous cultures, which can affect the design of human-computer interaction. Considering users' cultures and backgrounds is crucial for designing ease of use and user satisfaction. Assuming the user's culture and context is essential to planning for ease of use and user satisfaction. Therefore, a postcolonial computing perspective can help designers better understand and respect users' needs from different cultural backgrounds.
+Postcolonial computing is concerned with digital inclusion, ensuring that digital technologies are universally available and accessible, which also fulfills one of the goals of human-computer interaction: designing interfaces and interactions that make technology more accessible to different people. Digital inclusivity is not just about providing accessible technology but also about considering the diversity of users' needs to ensure easy and comfortable access to digital resources. A continuous focus on and improvement of digital inclusivity is essential, the realisation of which contributes to creating a more equal and inclusive society.<br><br>
+
+In China, the design, user interface, and user experience of some technology products reflect cultural biases or insufficiently inclusive features, which may make it difficult for the product to meet the needs of users from different cultures and backgrounds, or even some user groups may feel neglected or excluded. For example, regarding the cultural symbols of software interfaces, the culturally sensitive words of online content, and the cultural representation of virtual game applications. Because of this, the platform is based on postcolonial computing and emphasises cultural diversity and social justice. It engages more people in cultural experiences through the web and promotes the transmission and development of indigenous cultures, which can affect human-computer interaction design. Considering users' cultures and backgrounds is crucial for designing ease of use and user satisfaction. Therefore, a postcolonial computing perspective can help designers better understand and respect users' needs from different cultural backgrounds.
+
+<br>
+<br>
+Postcolonial computing promotes reflection on technology development and design, an essential trend in human-computer interaction. Similarly, I introduced Reflective Design, a methodology that aims to ensure that products, services, and technologies fully consider cultural diversity and inclusion in their design and implementation. Reflective design encourages designers and researchers to consider how their work affects social, cultural, political dimensions, and how to reduce potential conflicts and inequalities.
+<br>
+<br>
+China is rich in cultural diversity, including different ethnicities, languages, and regional cultures. Adopting reflective design can better meet the needs of Chinese society, ensure that products and services reach a wide range of user groups, and reduce the exclusion of specific groups, increasing inclusiveness and user satisfaction.
 <br><br>
 			
-Postcolonial computing promotes reflection on technology development and design, an essential trend in human-computer interaction. Similarly, I introduced Reflective Design, a design methodology that aims to ensure that products, services, and technologies fully consider cultural diversity and inclusion in their design and implementation. Reflective design encourages designers and researchers to consider how their work affects social, cultural and political dimensions and how to reduce potential inequalities and conflicts.
-			<br><br>
-China is rich in cultural diversity, including different languages, ethnicities, and regional cultures. Therefore, adopting reflective design can better meet the needs of China's diverse society, ensure that products and services reach a wide range of user groups, and reduce the exclusion of specific groups, increasing inclusiveness and user satisfaction.
-			<br><br>
-			
-The artwork <Forbidden> utilises a reflective illustration design that critically explores symbols, characters, or graphics in contemporary technological products and digital content that may cause cultural misunderstandings, prejudices, and stereotypes, which may include misinterpretation of customs and cultures, traditional rituals, religions, and political stances that can mislead viewers' understanding of Chinese culture.
-			<br><br>
-This work not only reflects explicitly the cultural differences between different regions and ethnic groups in China but also provides localised content related to Chinese culture and environment, such as information on festivals, customs, special events, and stories or traditional backgrounds about Chinese culture to increase the emotional resonance of users. This work also provides solutions for creating inclusiveness and diversity in future cross-cultural designs.
-			<br><br>
 		</p>
 	
-		<h1>Illustration work / Forbidden</h1>
+		<h1 class="italic-text">Illustration work ---> Forbidden</h1>
 		<p class="custom-line-height">
+			The artwork <Forbidden> utilises a reflective illustration design that critically explores symbols, characters, or graphics in contemporary technological products and digital content that may cause cultural misunderstandings, prejudices, and stereotypes, which may include misinterpretation of customs and cultures, traditional rituals, religions, and political stances that can mislead viewers' understanding of Chinese culture.<br><br>
 			
+			This work not only reflects the cultural differences between different regions and ethnic groups in China explicitly but also provides localised content related to Chinese culture and environment, such as information on festivals, special events, and stories or traditional backgrounds about Chinese culture to increase the emotional resonance of users. This work also provides solutions for creating inclusiveness and diversity in future cross-cultural designs.<br>
 
 	<div class="image-container">
 		<div class="image-overlay" id="overlay-1">
-		<img src="https://i.postimg.cc/bwfff6Mh/1.jpg" alt="Image 1"> <!-- 替换为您的图片路径 -->
-		<h3> 'National Image'</h3>
-		<img src="https://i.postimg.cc/X7ddvJ2C/04.jpg" alt="Image 2"> <!-- 替换为您的图片路径 -->
-		<h3> 'Icons and Symbols'</h3>
-		<img src="https://i.postimg.cc/BbxbJ8qZ/02.jpg" alt="Image 3"> <!-- 替换为您的图片路径 -->
-		<h3> 'Language'</h3>
-		<img src="https://i.postimg.cc/Lsw8fk56/03.jpg" alt="Image 4"> <!-- 替换为您的图片路径 -->
+		<img src="https://i.postimg.cc/85RgtYvs/1.jpg" alt="Image 1"> <!-- 替换为您的图片路径 -->
+		<h3 class="italic-text"> 'National Image'</h3>
+		<p class="italic-text">The misunderstanding and stereotyping of China that exists today. The illustration contains homogenous characters, ignored geographic and cultural differences, cultural cliches, and one-dimensional presentations of social issues. </p>
+		<img src="https://i.postimg.cc/0N1tcy0d/02.jpg" alt="Image 2"> <!-- 替换为您的图片路径 -->
+		<h3 class="italic-text"> 'Language'</h3>
+		<p class="italic-text">Many icons and symbols in information dissemination today represents a negative phenomenon in China. This illustration is symbolised through risque and negative things, associating symbolic meanings with numbers, colour, homonyms, orientation, sequence, animals, implications, gifts, plants, and vessels. </p>
+		<img src="https://i.postimg.cc/wvmLPXx1/04.jpg" alt="Image 3"> <!-- 替换为您的图片路径 -->
+		<h3 class="italic-text"> 'Icons and Symbols'</h3>
+		<p class="italic-text">Language (and the culture embedded within it) is not only verbal, but it is also visually semiotic. This illustration includes dialect differences, accents and pronunciation, Internet memes and Internet jokes, and English loanwords. Aiming to shed light on the phenomenon that China's languages and cultures can be easily misunderstood and confused due to the lack of necessary cultural research in today's information dissemination process. </p>
+		<img src="https://i.postimg.cc/T1cLMQz3/03.jpg" alt="Image 4"> <!-- 替换为您的图片路径 -->
 		<h3> 'Festivals'</h3>
-		<img src="https://i.postimg.cc/mg9XBB9X/05.jpg" alt="Image 5"> <!-- 替换为您的图片路径 -->
-		<h3> 'User Feedback'</h3>
+		<p class="italic-text" >Some technology products do not consider traditional Chinese festivals, resulting in services during festivals that are not flexible or accommodating enough. This illustration aims to advocate for more consideration of festivals and culture in cross-cultural product design in the future. Multi-frame comics are applied to express the theme festivals in three aspects: e-commerce, social media platforms, and online payment platforms. </p>
 	</div>
-			
-			
 			
 			
 		</p>
 		<br><br>
 	    
+	
 
 </body>
 </html>
