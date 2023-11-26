@@ -1,0 +1,13 @@
+body {
+    cursor: none; /* 隐藏默认光标 */
+  }
+  
+  .custom-cursor {
+    width: 220px; /* 图片宽度 */
+    height: 220px; /* 图片高度 */
+    background-image: url('06.ico'); /* 替换为你自己的图片 URL */
+    background-size: cover;
+    position: absolute;
+    pointer-events: none; /* 使光标不影响其他元素 */
+  }
+  
